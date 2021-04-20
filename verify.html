@@ -37,7 +37,7 @@
             }
             .next {
                 bottom: 100px;
-                color: white;
+                color: red;
                 font-size: 18px;
             }
         </style>
@@ -69,16 +69,14 @@
 
                 <br><br>
 
-                <div id="post-verify-section" style="display: none; width: 100%; height: 100%;">
+                <div id="post-verify-section" style="display: none;">
                     <div class="card center-in-div margin-bottom"> 
                         <h1 id="qr-verify-title" style="text-align: center;"></h1>
                         <canvas style="padding:0px 50px" id="qr"></canvas><br/>
                         <h1 id="qr-verify-name" style="text-align: center;"></h1>
                         <h2 id="qr-verify-verified" style="text-align: center;"></h2>
                     </div> 
-                    <div class="center-in-div">
-                        <button class="qr-btn primary next" onclick="refresh()">Next</button>
-                    </div>
+                    <button class="qr-btn primary next" onclick="refresh()">Next</button>
                 </div>
             </div>
         </div>

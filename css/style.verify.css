@@ -18,7 +18,7 @@ h1 {
 
 .center-in-div {
   margin: 0;
-  position: absolute;
+  /* position: absolute; */
   left: 50%;
   -ms-transform: translate(-50%, -0%);
   transform: translate(-50%, -0%);
