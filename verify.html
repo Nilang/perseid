@@ -26,7 +26,7 @@
                 margin-bottom: 25px;
             }
             .width-scan {
-                width: 400px;
+                width: 500px;
             }
             #reader__dashboard_section button {
                 background-color:  rgb(8, 80, 128);
@@ -45,7 +45,7 @@
                     <h2 class="center primary margin-bottom">BERMUDA COVID PASS READER</h2>
 
                     <!-- <video id="preview" height="800px" width="600px"></video> -->
-                    <div class="width-scan" id="reader"></div>
+                    <div class="center width-scan" id="reader"></div>
                     <br><br>
                     <h2 class="secondary center margin-bottom">Hold over QR Code</h2>
                     
@@ -53,7 +53,6 @@
                     <button class="qr-btn hide" id='camera-btn' onclick="startQR()">Enable Camera</button>
                     <br><br>
                     
-                    <div id="inspect"></div>
                     <h2 class="hide">Or Paste the QR Code here:</h2>
                     <textarea id="qr-verify" class ="hide" rows="10" style="width:100%;" placeholder="cred:type:version:signature:pubkey:payload"></textarea>
                     <br><br> 
@@ -108,8 +107,8 @@
             function onScanSuccessHTML(qrMessage) {
                 // handle the scanned code as you like, for example:
                 console.log(`QR matched = ${qrMessage}`);
-                const $el = document.getElementById('inspect');
-                $el.innerHTML = qrMessage;
+                // const $el = document.getElementById('inspect');
+                // $el.innerHTML = qrMessage;
                 onScanSuccess(qrMessage);
             }
 
