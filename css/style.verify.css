@@ -58,7 +58,7 @@ canvas {
 .select {
   display:flex;
   flex-direction: row;
-  position:relative;
+  position:absolute;
   float:left;
   width: 125px;
   margin-bottom: 25px;
