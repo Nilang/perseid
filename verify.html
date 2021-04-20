@@ -30,16 +30,16 @@
                     <img class="logo-img" src='img/perseid.jpg' />
                     <h3 class="p-header theme">BERMUDA COVID PASS READER</h3>
 
-                    <video id="preview" height="300px" width="300px"></video>
+                    <video id="preview" width="600px"></video>
                     
                     <!-- <h2>Or Paste the QR Code here:</h2>
                     <textarea id="qr-verify" rows="10" style="width:100%;" placeholder="cred:type:version:signature:pubkey:payload"></textarea>
                     <br><br> -->
                     <div class="select" tabindex="1" id="cameras"></div>
                     <button class="qr-btn" id='camera-btn' onclick="startQR()">Enable Camera</button>
-                    <!-- <div class="center-in-div"> 
+                    <div class="center-in-div"> 
                         <button class="qr-btn" onclick="verifyQRCode()">Verify</button>
-                    </div> -->
+                    </div>
                 </div>
 
                 <br><br>
@@ -282,7 +282,7 @@
             }
 
             function startQR() {
-                if (e('camera-btn').innerHTML === "Open Camera") {
+                if (e('camera-btn').innerHTML === "Enable Camera") {
                     Instascan.Camera.getCameras().then(function (cameras) {
                         if (cameras.length > 0) {
                             scanner.start(cameras[document.querySelector('input[name="camera"]:checked').id.substr(3)]);
@@ -298,7 +298,7 @@
                     e('preview').pause();
                     e('preview').removeAttribute('src'); // empty source
                     e('preview').load();
-                    e('camera-btn').innerHTML = "Open Camera";
+                    e('camera-btn').innerHTML = "Enable Camera";
                 }
             }
 
