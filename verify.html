@@ -7,18 +7,36 @@
             .hide {
                 display: none;
             }
+            .logo {
+                display: block;
+                width: 65%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .center {
+                text-align: center;
+            }
+            .primary {
+                color: rgb(8, 80, 128);
+            }
+            .secondary {
+                color: rgb(92, 97, 100);
+            }
+            .margin-bottom {
+                margin-bottom: 25px;
+            }
         </style>
 	</head>
 	<body>
         <div class="center">
             <div class="full-div">
                 <div id="pre-verify-section">
-                    <img src="img/perseid.jpg" / class="logo">
-                    <h2>Bermuda Covid Pass Reader</h2>
+                    <img src="img/perseid.jpg" / class="logo margin-bottom">
+                    <h2 class="center primary margin-bottom">BERMUDA COVID PASS READER</h2>
 
-                    <video id="preview" width="600px"></video>
+                    <video id="preview" height="600px" width="400px"></video>
                     <br><br>
-                    <h2>Hold over QR Code</h2>
+                    <h2 class="secondary center margin-bottom">Hold over QR Code</h2>
                     
                     <div class="select" tabindex="1" id="cameras"></div>
                     <button class="qr-btn" id='camera-btn' onclick="startQR()">Enable Camera</button>
