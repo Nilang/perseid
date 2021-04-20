@@ -112,12 +112,9 @@
                 console.warn(`QR error = ${error}`);
             }
 
-            // let html5QrcodeScanner = new Html5QrcodeScanner(
-            //     "reader", { fps: 10, qrbox: 250 }, /* verbose= */ false);
-            // html5QrcodeScanner.render(onScanSuccessHTML, onScanFailureHTML);
-            const html5QrCode = new Html5Qrcode("#reader");
-            const qrCodeSuccessCallback = message => { onScanSuccessHTML(message) }
-            const config = { fps: 10, qrbox: 250 };
+            let html5QrcodeScanner = new Html5QrcodeScanner(
+                "reader", { fps: 10, qrbox: 250 }, /* verbose= */ false);
+            html5QrcodeScanner.render(onScanSuccessHTML, onScanFailureHTML);
             
             const monthNames = [ " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 
