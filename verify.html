@@ -77,6 +77,7 @@
         <script src="js/divoc.min.js"></script>
 
         <script type="text/javascript" src="js/instascan.min.js"></script>
+        <script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script>
 
 		<script>
             function e(elem) { return document.getElementById(elem); }
@@ -92,6 +93,22 @@
             scanner.addListener('scan', function (content) {
                 onScanSuccess(content);
             });
+
+            function onScanSuccessHTML(qrMessage) {
+                // handle the scanned code as you like, for example:
+                console.log(`QR matched = ${qrMessage}`);
+                onScanSuccess(content);
+            }
+
+            function onScanFailureHTML(error) {
+                // handle scan failure, usually better to ignore and keep scanning.
+            // for example:
+                console.warn(`QR error = ${error}`);
+            }
+
+            let html5QrcodeScanner = new Html5QrcodeScanner(
+                "reader", { fps: 10, qrbox: 250 }, /* verbose= */ false);
+            html5QrcodeScanner.render(onScanSuccessHTML, onScanFailureHTML);
             
             const monthNames = [ " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 
@@ -293,15 +310,32 @@
 
             function startQR() {
                 if (e('camera-btn').innerHTML === "Enable Camera") {
-                    Instascan.Camera.getCameras().then(function (cameras) {
-                        if (cameras.length > 0) {
+                    // This method will trigger user permissions
+                    Html5Qrcode.getCameras().then(devices => {
+                        /**
+                         * devices would be an array of objects of type:
+                         * { id: "id", label: "label" }
+                         */
+                        if (devices && devices.length) {
+                            var cameraId = devices[0].id;
+                            // .. use this to start scanning.
                             scanner.start(cameras[document.querySelector('input[name="camera"]:checked').id.substr(3)]);
                         } else {
                             console.error('No cameras found.');
                         }
-                    }).catch(function (e) {
-                        console.error(e);
+                    }).catch(err => {
+                        // handle err
+                        console.error(err);
                     });
+                    // Instascan.Camera.getCameras().then(function (cameras) {
+                    //     if (cameras.length > 0) {
+                    //         scanner.start(cameras[document.querySelector('input[name="camera"]:checked').id.substr(3)]);
+                    //     } else {
+                    //         console.error('No cameras found.');
+                    //     }
+                    // }).catch(function (e) {
+                    //     console.error(e);
+                    // });
                     e('camera-btn').innerHTML = "Close Camera";
                 } else {
                     scanner.stop();
