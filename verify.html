@@ -65,12 +65,13 @@
                 <br><br>
 
                 <div id="post-verify-section" style="display: none;">
-                    <div class="card center-in-div"> 
+                    <div class="card center-in-div margin-bottom"> 
                         <h1 id="qr-verify-title" style="text-align: center;"></h1>
                         <canvas style="padding:0px 50px" id="qr"></canvas><br/>
                         <h1 id="qr-verify-name" style="text-align: center;"></h1>
                         <h2 id="qr-verify-verified" style="text-align: center;"></h2>
-                    </div>
+                    </div> 
+                    <button class="qr-btn" onclick="refresh()">Verify</button>
                 </div>
             </div>
         </div>
@@ -141,7 +142,9 @@
             function short(hash) {
                 return hash.substr(0,10) + ".." + hash.substr(hash.length-10,10)
             }
-
+            function refresh () {
+                window.location.reload()
+            }
             function verifyQRCode(data) {
                 if (!data)
                     data = e("qr-verify").value;
